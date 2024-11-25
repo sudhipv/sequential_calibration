@@ -21,22 +21,28 @@ from tmcmc_mod.tmcmc_mod import run_tmcmc
 np.random.seed(106)  # fixing the random seed
 
 ### CHANGE HERE : IF YOU ARE RUNNING ON USER MACHINE/LAPTOP USE MULTIPROCESSING AND IF YOU ARE RUNNING ON CLUSTERS USE MPI.
-parallel_processing = 'mpi' #'multiprocessing','mpi'
-
-Npar = 8 # number of unknown parameters
-
-
-#### FOR CASES WITH REAL DATA #######
-phiTrue = np.zeros([Npar])
-
-### SETTING THE LOWER AND UPPER BOUNDS BASED ON MANUAL TUNING. JUST HAVING KNOWLEDGE IF THE PARAMETER IS POSITIVE OR NEGATIVE
-
-X_low = [0,-0.2, 0, -0.2, 0, 0, -0.2, 0, -0.2]
-X_up = [0.2,0, 0.2, 0, 0.2, 0.2, 0, 0.2, 0]
-
+parallel_processing = 'multiprocessing' #'multiprocessing','mpi'
 
 
 #### CHANGE HERE ############
+
+## Number of parameters to infer
+Npar = 8 # number of unknown parameters
+
+
+#### FOR CASES WITH NO TRUE PARAMETER VALUES - REAL DATA #######
+phiTrue = np.zeros([Npar])
+
+# ### FOR CASES WITH TRUE PARAMETER VALUES - SYNTHETIC DATA  ###############
+# ## True parameters of your model
+# phiTrue = [ 0.15, -0.1, 0.05,  -0.07, 0.035, 0.08, -0.065, 0.025] 
+
+### SETTING THE LOWER AND UPPER BOUNDS BASED ON MANUAL TUNING. JUST HAVING KNOWLEDGE IF THE PARAMETER IS POSITIVE OR NEGATIVE
+
+X_low = [0, -0.2, 0, -0.2, 0,  0,  -0.2, 0,  -0.2]
+X_up = [0.2, 0,  0.2, 0,  0.2, 0.2, 0,  0.2,  0]
+
+
 ### MLE OF YOUR PARAMETERS WHICH WILL BE USED AS PRIORS FOR TMCMC. UNIFORM PRIORS WITHIN THE BOUNDS.
 # x_MLE_low = np.zeros([8])
 # x_MLE_up = np.zeros([8])
@@ -53,9 +59,7 @@ X_up = [0.2,0, 0.2, 0, 0.2, 0.2, 0, 0.2, 0]
 # X_low = x_MLE_low
 # X_up = x_MLE_up
 
-# ### CHANGE HERE ###############
-# ## True parameters of your model for Synthetic data 
-# phiTrue = [ 0.15, -0.1, 0.05,  -0.07, 0.035, 0.08, -0.065, 0.025] 
+
 
 #### CHANGE HERE 
 #### LABEL VALUES TO BE INCLUDED IN PLOTS
@@ -115,10 +119,10 @@ def loglikfun(parameter_vector_in):
 
 ####### CHANGE HERE #####################
     # Toronto
-    sigma = 75 # standard deviation
+    # sigma = 75 # standard deviation
 
     # Durham
-    # sigma = 20 # standard deviation
+    sigma = 20 # standard deviation
 
     # # York
     # sigma = 20 # standard deviation
@@ -126,26 +130,23 @@ def loglikfun(parameter_vector_in):
     # # Peel
     # sigma = 40 # standard deviation
 
+    PHU_path = '/Users/sudhipv/documents/sequential_calibration/PHU_Data'
     Data = np.zeros([365,4])
 
-    target_file1 = './phudata/30-Toronto.csv'
-    target_file2 = './phudata/34-York.csv'
-    target_file3 = './phudata/04-Durham.csv'
-    target_file4 = './phudata/22-PeelRegion.csv'
+    target_file1 = f'{PHU_path}/30-Toronto.csv'
+    target_file2 = f'{PHU_path}/34-York.csv'
+    target_file3 = f'{PHU_path}/04-Durham.csv'
+    target_file4 = f'{PHU_path}/22-PeelRegion.csv'
 
     Data[:,0] = np.genfromtxt(target_file1, delimiter=',')
     Data[:,1] = np.genfromtxt(target_file2, delimiter=',')
     Data[:,2] = np.genfromtxt(target_file3, delimiter=',')
     Data[:,3] = np.genfromtxt(target_file4, delimiter=',')
 
-    population_by_phu = np.genfromtxt('./phudata/population_by_phu.csv', delimiter=',')
+    population_by_phu = np.genfromtxt(f'{PHU_path}/population_by_phu.csv', delimiter=',')
 
 ####### CHANGE HERE #####################
     total = population_by_phu[3,1]
-
-    I_retrived = np.zeros((272,N_city))
-
-    I_synthetic = np.zeros((len(t),N_city))
 
      ###### CHANGE HERE ###########
     E[0,0] = Data[0,2]
@@ -157,20 +158,23 @@ def loglikfun(parameter_vector_in):
     D[0,0] = 0
     S[0,0] = N[0,0] - E[0,0] - I[0,0] - R[0,0] - D[0,0]
 
-    I_synthetic[0,0] = I[0,0]
-
     # target_file1 = './toronto_synthetic_data_75.csv'
 
 ####### CHANGE HERE #####################
 #### FOR LOADING YOUR SYNTHETIC DATA
-    # target_file1 = './data/toronto_2phu_jedmobility.csv'
 
+    # I_synthetic = np.zeros((len(t),N_city))
+    # I_synthetic[0,0] = I[0,0]
+    # target_file1 = './data/toronto_2phu_jedmobility.csv'
+    # I_retrived = np.zeros((272,N_city))
     # I_retrived[:,0] = np.genfromtxt(target_file1, delimiter=',')
 
     # I_synthetic[:,0] =  I_retrived[tstart:tlim,0]
 
 
 #### OBSERVED MOH DATA
+    I_synthetic = np.zeros((len(t),N_city))
+    I_synthetic[0,0] = I[0,0]
     I_synthetic[:,0] =  Data[tstart:tlim,2]
 
     # print(np.shape(I_synthetic))
@@ -251,7 +255,7 @@ if __name__ == '__main__': #the main part of the program.
 
     ####### CHANGE HERE #####################
     ### Number of samples to use at each stage
-    Nsmp = 2000
+    Nsmp = 200
     import time
     start = time.time()
 
@@ -274,7 +278,13 @@ if __name__ == '__main__': #the main part of the program.
         plt.figure(ii,figsize=(3.5, 2.8))
         plt.plot((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar),Chain[ii::Npar],'b.',markersize=2)
         #plt.plot(Xsmp[ii,:],Chain)
-        plt.plot([0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])],[phiTrue[ii],phiTrue[ii]],'r--',label='True')
+
+        ### CHANGE HERE ######
+        ### Synthetic Data ######
+        # plt.plot([0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])],[phiTrue[ii],phiTrue[ii]],'r--',label='True')
+        ### Real Data ######      
+        plt.plot([0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])])
+
         if ii == 0:
             plt.legend(loc='upper right')
         myXTicks = np.arange(0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])+1)
@@ -284,7 +294,7 @@ if __name__ == '__main__': #the main part of the program.
         #plt.xlim([0,3])
         plt.xlabel('Stage')
         plt.ylabel(mylabel[ii])
-        plt.savefig('./figs/Chain'+str(ii+1)+'.eps',bbox_inches='tight')
+        plt.savefig('/Users/sudhipv/documents/sequential_calibration/mcmc/single_phu/figs/Chain'+str(ii+1)+'.eps',bbox_inches='tight')
         plt.close()
 
     mpl.rcParams.update({'font.size':14})
@@ -311,11 +321,15 @@ if __name__ == '__main__': #the main part of the program.
         print('COV for '+mylabel[j]+': '+str(pdfCOV))
         myYlim = [0.0, 1.1*pdfmax]
         if j ==0:
-            ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r',label='True')
+             ### CHANGE HERE ######
+             ### Synthetic Data - Uncomment ######
+            # ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r',label='True')
             ax1.legend(loc='upper left', numpoints = 1)
         print(myYlim)
         print('=======================')
-        ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r')
+        ### CHANGE HERE ######
+        ### Synthetic Data - Uncomment ######
+        # ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r')
         ax1.set_ylabel('pdf')
         ax1.set_xlabel(mylabel[j])
         #plt.xlim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
@@ -331,7 +345,7 @@ if __name__ == '__main__': #the main part of the program.
         ax2.set_ylim(myYlim2)
         ax2.set_yticks([])
 
-        plt.savefig('./figs/mpdf_'+str(j)+'.pdf',bbox_inches='tight')
+        plt.savefig('/Users/sudhipv/documents/sequential_calibration/mcmc/single_phu/figs/mpdf_'+str(j)+'.pdf',bbox_inches='tight')
         plt.close()
 
     msize = 1.2
@@ -339,16 +353,22 @@ if __name__ == '__main__': #the main part of the program.
         for j in range(i+1,Npar):
             plt.figure(Npar*i+j,figsize=(3.5, 2.8))
             plt.plot(Xsmp[i,:],Xsmp[j,:],'b.',markersize = msize)
-            plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
-            plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
+            ### CHANGE HERE ######
+            ### Synthetic Data - Uncomment below line ######
+            # plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
+            # plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
+            # plt.xlim([phiTrue[i]-0.02,phiTrue[i]+0.02])
+            # plt.ylim([phiTrue[j]-0.02,phiTrue[j]+0.02])
+
             plt.xlabel(mylabel[i])
             plt.ylabel(mylabel[j])
-            # plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
-            # plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
-            plt.xlim([phiTrue[i]-0.02,phiTrue[i]+0.02])
-            plt.ylim([phiTrue[j]-0.02,phiTrue[j]+0.02])
+
+            ### REAL DATA ###
+            plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
+            plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
+
             plt.grid(True)
-            plt.savefig('./figs/Jsmpls_'+str(i+1)+str(j+1)+'.eps',bbox_inches='tight')
+            plt.savefig('/Users/sudhipv/documents/sequential_calibration/mcmc/single_phu/figs/Jsmpls_'+str(i+1)+str(j+1)+'.eps',bbox_inches='tight')
             plt.close()
 
     msize = 1.2
@@ -375,16 +395,24 @@ if __name__ == '__main__': #the main part of the program.
             #cset = ax.contour(xx, yy, f, colors='k')
             # Label plot
             #ax.clabel(cset, inline=1, fontsize=10)
-            plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
-            plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
+
+            ### CHANGE HERE ######
+            ### Synthetic Data - Uncomment below line ######
+            # plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
+            # plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
+            # plt.xlim([phiTrue[i]-0.02,phiTrue[i]+0.02])
+            # plt.ylim([phiTrue[j]-0.02,phiTrue[j]+0.02])
+
+
             plt.xlabel(mylabel[i])
             plt.ylabel(mylabel[j])
-            # plt.xlim([xmin,xmax])
-            # plt.ylim([ymin,ymax])
-            plt.xlim([phiTrue[i]-0.02,phiTrue[i]+0.02])
-            plt.ylim([phiTrue[j]-0.02,phiTrue[j]+0.02])
+
+             ### REAL DATA ###
+            plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
+            plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
+
             plt.grid(True)
-            plt.savefig('./figs/jpdf_'+str(i+1)+str(j+1)+'.eps',bbox_inches='tight')
+            plt.savefig('/Users/sudhipv/documents/sequential_calibration/mcmc/single_phu/figs/jpdf_'+str(i+1)+str(j+1)+'.eps',bbox_inches='tight')
             plt.close()
 
     # kdeMCMC= st.gaussian_kde(statSmp,bw_method = 0.1)
