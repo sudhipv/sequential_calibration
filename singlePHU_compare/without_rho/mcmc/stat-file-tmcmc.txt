@@ -1,0 +1,470 @@
+======================== 
+using multiprocessing 
+======================== 
+======================== 
+using multiprocessing 
+======================== 
+======================== 
+using multiprocessing 
+======================== 
+stage number = 1 
+beta = 0.00038 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.22 
+adapted max MCMC steps = 7 
+next MCMC Nsteps = 7 
+log_evidence till now = -1.11313164485713711471 
+--- Execution time: 0.02 mins --- 
+======================== 
+stage number = 2 
+beta = 0.00194 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.14 
+adapted max MCMC steps = 9 
+next MCMC Nsteps = 9 
+log_evidence till now = -2.59532251150763393355 
+--- Execution time: 0.04 mins --- 
+======================== 
+stage number = 3 
+beta = 0.00484 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.18 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -4.00996476454244543675 
+--- Execution time: 0.05 mins --- 
+======================== 
+stage number = 4 
+beta = 0.01150 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.23 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -5.58134926928753305475 
+--- Execution time: 0.06 mins --- 
+======================== 
+stage number = 5 
+beta = 0.02472 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.23 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -7.01579629863264209177 
+--- Execution time: 0.09 mins --- 
+======================== 
+stage number = 6 
+beta = 0.05084 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.22 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -8.74317242934012206490 
+--- Execution time: 0.09 mins --- 
+======================== 
+stage number = 7 
+beta = 0.10421 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.24 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -10.40964908459677573660 
+--- Execution time: 0.12 mins --- 
+======================== 
+stage number = 8 
+beta = 0.20733 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.24 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -11.95598064350215139484 
+--- Execution time: 0.11 mins --- 
+======================== 
+stage number = 9 
+beta = 0.40054 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -13.49200851549811019936 
+--- Execution time: 0.13 mins --- 
+======================== 
+stage number = 10 
+beta = 0.78348 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -15.33550021723040401866 
+--- Execution time: 0.13 mins --- 
+======================== 
+stage number = 11 
+beta = 1.00000 
+ESS = 174 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -16.01028887638721442954 
+--- Execution time: 0.14 mins --- 
+======================== 
+--- Execution time: 1.03 mins --- 
+log_evidence = -16.01028887638721442954 
+closing multiprocessing 
+======================== 
+using multiprocessing 
+======================== 
+stage number = 1 
+beta = 0.00038 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.21 
+adapted max MCMC steps = 7 
+next MCMC Nsteps = 7 
+log_evidence till now = -1.11313164485713711471 
+--- Execution time: 0.02 mins --- 
+======================== 
+stage number = 2 
+beta = 0.00191 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.14 
+adapted max MCMC steps = 9 
+next MCMC Nsteps = 9 
+log_evidence till now = -2.58499642762750259095 
+--- Execution time: 0.03 mins --- 
+======================== 
+stage number = 3 
+beta = 0.00443 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.16 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -3.93764942616004498532 
+--- Execution time: 0.05 mins --- 
+======================== 
+stage number = 4 
+beta = 0.01013 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.24 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -5.35370129922775550568 
+--- Execution time: 0.07 mins --- 
+======================== 
+stage number = 5 
+beta = 0.02376 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -6.79329557650030846361 
+--- Execution time: 0.07 mins --- 
+======================== 
+stage number = 6 
+beta = 0.05216 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.24 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -8.54362025375606570776 
+--- Execution time: 0.08 mins --- 
+======================== 
+stage number = 7 
+beta = 0.09779 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -9.95535978713765956627 
+--- Execution time: 0.09 mins --- 
+======================== 
+stage number = 8 
+beta = 0.19378 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -11.60907043395383908546 
+--- Execution time: 0.10 mins --- 
+======================== 
+stage number = 9 
+beta = 0.37163 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -13.09490816281419967027 
+--- Execution time: 0.11 mins --- 
+======================== 
+stage number = 10 
+beta = 0.64911 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.29 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -14.65061806226965757105 
+--- Execution time: 0.12 mins --- 
+======================== 
+stage number = 11 
+beta = 1.00000 
+ESS = 130 
+scalem = 0.98 
+acceptance rate = 0.30 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -15.79906269034445109867 
+--- Execution time: 0.12 mins --- 
+======================== 
+--- Execution time: 0.92 mins --- 
+log_evidence = -15.79906269034445109867 
+closing multiprocessing 
+======================== 
+using multiprocessing 
+======================== 
+stage number = 1 
+beta = 0.00038 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.20 
+adapted max MCMC steps = 7 
+next MCMC Nsteps = 7 
+log_evidence till now = -1.11313164485713711471 
+--- Execution time: 0.02 mins --- 
+======================== 
+stage number = 2 
+beta = 0.00191 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.13 
+adapted max MCMC steps = 9 
+next MCMC Nsteps = 9 
+log_evidence till now = -2.71797158381222603296 
+--- Execution time: 0.03 mins --- 
+======================== 
+stage number = 3 
+beta = 0.00476 
+ESS = 100 
+scalem = 0.98 
+acceptance rate = 0.16 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -4.04643328421021308827 
+--- Execution time: 0.05 mins --- 
+======================== 
+stage number = 4 
+beta = 0.01213 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -5.45983012159677105757 
+--- Execution time: 0.07 mins --- 
+======================== 
+stage number = 5 
+beta = 0.02751 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.22 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -6.94250825030905005519 
+--- Execution time: 0.07 mins --- 
+======================== 
+stage number = 6 
+beta = 0.05874 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -8.65375721093246497162 
+--- Execution time: 0.09 mins --- 
+======================== 
+stage number = 7 
+beta = 0.11330 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -10.21052268894429104762 
+--- Execution time: 0.10 mins --- 
+======================== 
+stage number = 8 
+beta = 0.21390 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -11.71297411651126019194 
+--- Execution time: 0.11 mins --- 
+======================== 
+stage number = 9 
+beta = 0.41729 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.27 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -13.20856976444073893617 
+--- Execution time: 0.12 mins --- 
+======================== 
+stage number = 10 
+beta = 0.76408 
+ESS = 99 
+scalem = 0.98 
+acceptance rate = 0.27 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -14.78389404609572821414 
+--- Execution time: 0.13 mins --- 
+======================== 
+stage number = 11 
+beta = 1.00000 
+ESS = 170 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -15.52517696576876282677 
+--- Execution time: 0.13 mins --- 
+======================== 
+--- Execution time: 0.96 mins --- 
+log_evidence = -15.52517696576876282677 
+closing multiprocessing 
+======================== 
+using multiprocessing 
+======================== 
+stage number = 1 
+beta = 0.00043 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.17 
+adapted max MCMC steps = 7 
+next MCMC Nsteps = 7 
+log_evidence till now = -1.25154004878818048141 
+--- Execution time: 0.20 mins --- 
+======================== 
+stage number = 2 
+beta = 0.00195 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.13 
+adapted max MCMC steps = 9 
+next MCMC Nsteps = 9 
+log_evidence till now = -2.87549576290215336272 
+--- Execution time: 0.34 mins --- 
+======================== 
+stage number = 3 
+beta = 0.00483 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.16 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -4.36000533156241765198 
+--- Execution time: 0.48 mins --- 
+======================== 
+stage number = 4 
+beta = 0.01179 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.21 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -5.88021133984544253082 
+--- Execution time: 0.63 mins --- 
+======================== 
+stage number = 5 
+beta = 0.02755 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.23 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -7.46250226621749668254 
+--- Execution time: 0.74 mins --- 
+======================== 
+stage number = 6 
+beta = 0.05851 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.24 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -9.14729585364103847667 
+--- Execution time: 0.86 mins --- 
+======================== 
+stage number = 7 
+beta = 0.11760 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.25 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -10.78014101255232937149 
+--- Execution time: 1.00 mins --- 
+======================== 
+stage number = 8 
+beta = 0.22412 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.26 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -12.41039819184540426988 
+--- Execution time: 1.07 mins --- 
+======================== 
+stage number = 9 
+beta = 0.41915 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.27 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -13.98152333013882042678 
+--- Execution time: 1.17 mins --- 
+======================== 
+stage number = 10 
+beta = 0.80453 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.27 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -15.63825271769746727557 
+--- Execution time: 1.21 mins --- 
+======================== 
+stage number = 11 
+beta = 1.00000 
+ESS = 1796 
+scalem = 0.98 
+acceptance rate = 0.27 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -16.23135667278589622242 
+--- Execution time: 1.24 mins --- 
+======================== 
+--- Execution time: 9.12 mins --- 
+log_evidence = -16.23135667278589622242 
+closing multiprocessing 
